@@ -1,3 +1,5 @@
+package java_course;
+
 import java.util.Scanner;
 
 public class ITPLab4 {

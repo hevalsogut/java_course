@@ -69,6 +69,8 @@ public class s220315060 {
       case 4:
         System.out.println(firstNum / secondNum);
         break;
+      default:
+        System.out.println("Invalid Operation");
 
     }
 

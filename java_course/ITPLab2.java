@@ -10,11 +10,13 @@ public class ITPLab2 {
         Scanner weightPound = new Scanner(System.in);
         System.out.print("Enter your weight in pounds :");
         Double weight = weightPound.nextDouble();
+        weightPound.close();
         System.out.println(weight);
 
         Scanner heightInch = new Scanner(System.in);
         System.out.print("Enter your height in inches :");
         Double height = heightInch.nextDouble();
+        heightInch.close();
         System.out.println(height);
 
         double weightKG = (double) (weight * pound);

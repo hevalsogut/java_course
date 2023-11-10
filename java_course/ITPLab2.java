@@ -7,23 +7,30 @@ public class ITPLab2 {
         final double pound = 0.45359237;
         final double inch = 0.0254;
 
-        try (Scanner weightPound = new Scanner(System.in)) {
-            System.out.print("Enter your weight in pounds :");
-            float weight = weightPound.nextFloat();
-            System.out.println(weight);
+        Scanner weightPound = new Scanner(System.in);
+        System.out.print("Enter your weight in pounds :");
+        Double weight = weightPound.nextDouble();
+        System.out.println(weight);
 
-            try (Scanner heightİnch = new Scanner(System.in)) {
-                System.out.print("Enter your height in inches :");
-                float height = heightİnch.nextFloat();
-                System.out.println(height);
+        Scanner heightInch = new Scanner(System.in);
+        System.out.print("Enter your height in inches :");
+        Double height = heightInch.nextDouble();
+        System.out.println(height);
 
-                double weightKG = (double) (weight * pound);
-                double heightMeter = (double) (height * inch);
+        double weightKG = (double) (weight * pound);
+        double heightMeter = (double) (height * inch);
 
-                int bmi = (int) (weightKG / Math.pow(heightMeter, 2));
-                System.out.println("Your BMI is: " + bmi);
-            }
-        }
+        double BMI = (int) (weightKG / Math.pow(heightMeter, 2));
+        System.out.println("Your BMI is: " + BMI);
+
+        if (BMI < 18.5)
+            System.out.println("Underweight");
+        else if ((18.5 <= BMI) && (BMI < 25.0))
+            System.out.println("Normal");
+        else if ((25.0 <= BMI) && (BMI < 30.0))
+            System.out.println("Normal");
+        else
+            System.out.println("Obese");
 
     }
 

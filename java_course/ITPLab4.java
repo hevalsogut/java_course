@@ -3,6 +3,9 @@ package java_course;
 import java.util.Scanner;
 
 public class ITPLab4 {
+  /**
+   * @param args
+   */
   public static void main(String[] args) {
     // If ve else sadece alt satırı kapsar pythonun tam tersi. Sınır belirlemek için
     // "Küme Parantezi {} " kullanılır.

@@ -7,7 +7,7 @@
  */
 package java_course;
 
-public class s220315060 {
+public class String {
   public static void main(String[] args) {
 
     String s1 = "123";

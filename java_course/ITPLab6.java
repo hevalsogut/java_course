@@ -9,13 +9,14 @@ package java_course;
 
 import java.util.Scanner;
 
-public class s220315060 {
+public class ITPLab6 {
   public static void main(String[] args) {
 
     /* Q1 BMI Calculator */
 
     final double pound = 0.45359237;
     final double inch = 0.0254;
+
     Scanner weightPound = new Scanner(System.in);
     System.out.print("Enter your weight in pounds :");
     Double weight = weightPound.nextDouble();

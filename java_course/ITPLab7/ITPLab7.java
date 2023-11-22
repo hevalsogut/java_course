@@ -1,4 +1,4 @@
-package java_course;
+package ITPLab7;
 
 public class ITPLab7 {
   public static void main(String[] args) {

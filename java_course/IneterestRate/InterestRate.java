@@ -1,4 +1,4 @@
-package java_course;
+package IneterestRate;
 
 import java.util.Scanner;
 

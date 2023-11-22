@@ -5,7 +5,7 @@
  * 
  * 
  */
-package java_course;
+package String;
 
 public class String {
   public static void main(String[] args) {

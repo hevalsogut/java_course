@@ -5,7 +5,7 @@
 *
 */
 
-package java_course;
+package ITPLab6;
 
 import java.util.Scanner;
 

@@ -42,10 +42,10 @@ public class HW220315060 {
             checkBalance();
             break;
           case 4:
+            System.exit(0);
             break;
         }
       }
-      break;
 
     }
   }
@@ -97,4 +97,5 @@ public class HW220315060 {
   public static void checkBalance() {
     System.out.println("Account Balance: " + accountBalance);
   }
+
 }

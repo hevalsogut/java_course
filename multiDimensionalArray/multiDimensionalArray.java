@@ -1,4 +1,4 @@
-package Demos;
+package multiDimensionalArray;
 
 public class multiDimensionalArray {
   public static void main(String[] args) {

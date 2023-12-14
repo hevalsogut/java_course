@@ -1,4 +1,4 @@
-package Demos;
+package reCapDemo;
 
 public class reCapDemo {
   public static void main(String[] args) {

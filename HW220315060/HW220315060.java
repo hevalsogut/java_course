@@ -63,6 +63,8 @@ public class HW220315060 {
     }
   }
 
+  /* Menu of the appllication */
+
   public static void printMenu() {
     System.out.println("\n---- Bank Application ----");
     System.out.println("1. Deposit Money");
@@ -71,6 +73,8 @@ public class HW220315060 {
     System.out.println("4. Exit");
     System.out.print("Your choice: ");
   }
+
+  /* Choice 1, the deposit money section */
 
   public static void depositMoney() {
     System.out.print("Enter the amount to deposit: ");
@@ -81,10 +85,17 @@ public class HW220315060 {
 
   }
 
+  /* Choice 2, withdraw money section */
+
   public static void withDraw() {
     System.out.print("Enter the amount to withdraw: ");
     Scanner sc = new Scanner(System.in);
     int withdraw = sc.nextInt();
+
+    /*
+     * If the accountBalance is lower than the withdraw input, program will not work
+     * efficently
+     */
 
     if (accountBalance < withdraw) {
       System.out.println("Insufficent balance. The withdrawal amount cannot exceed the account balance.");
@@ -93,6 +104,8 @@ public class HW220315060 {
       System.out.println("Withdraw successful. New balance: " + accountBalance);
     }
   }
+
+  /* Choice 3, Check Balance section */
 
   public static void checkBalance() {
     System.out.println("Account Balance: " + accountBalance);

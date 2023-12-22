@@ -17,7 +17,7 @@ public class reverseArray {
     int max = sc.nextInt();
 
     /* Generate the random array with the given size, minimum and maximum values. */
-    int[] randomArray = generaterandomArray(6, 1, 5);
+    int[] randomArray = generaterandomArray(size, min, max);
     System.out.println(randomArray);
 
     /* Print the generated array */

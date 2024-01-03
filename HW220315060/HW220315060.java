@@ -1,30 +1,42 @@
-/*    HEVAL SÖĞÜT */
-/*     220315060  */
-
+/*    Basic Grading System  */
 package HW220315060;
 
 public class HW220315060 {
   /* Main Method */
   public static void main(String[] args) {
+    /* Initialize a 2D array for the random scores */
     int[][] scoreArray = initiateScoreArray();
+
+    /* Print Scores */
     printScores(scoreArray);
 
+    /* Calculate and print the averages of quizzes, midterms, and finals */
     calculateAverages(scoreArray);
 
+    /* Calculate and print the overall grades for each student */
     double[] overallGrades = calculateOverallGrade(scoreArray);
+
+    /*
+     * Calculate and print the letter grades for each student based on overall
+     * grades
+     */
     calculateLetterGrade(overallGrades);
   }
 
+  /* Returning scoreArray in this Method for initiate random scores */
   public static int[][] initiateScoreArray() {
+    /* Defining a new scoreArray with 20 rows and 3 collumns */
     int[][] scoreArray = new int[20][3];
     for (int i = 0; i < 20; i++) {
       for (int j = 0; j < 3; j++) {
+        /* Assign random scores between 0 and 100 */
         scoreArray[i][j] = (int) (Math.random() * 101);
       }
     }
     return scoreArray;
   }
 
+  /* Method to print the scores */
   public static void printScores(int[][] scoreArray) {
     System.out.println("Student" + " -- " + "Quiz" + "\t" + "Midterm" + "\t" + "Final");
     for (int i = 0; i < 20; i++) {
@@ -34,9 +46,14 @@ public class HW220315060 {
       }
       System.out.println();
     }
+    /* These lines for the better user experience */
     System.out.println("--------------------");
   }
 
+  /*
+   * This Method for calculate and print the averages of quizzes, midterms, and
+   * finals
+   */
   public static double[] calculateAverages(int[][] scoreArray) {
     double[] averages = new double[3];
     for (int j = 0; j < 3; j++) {
@@ -55,6 +72,7 @@ public class HW220315060 {
     return averages;
   }
 
+  /* Method to calculate and print the overall grades for each student */
   public static double[] calculateOverallGrade(int[][] scoreArray) {
     double[] overallGrades = new double[20];
 
@@ -74,6 +92,7 @@ public class HW220315060 {
     return overallGrades;
   }
 
+  /* Method to calculate and print the letter grades for each student */
   public static char[] calculateLetterGrade(double[] overallGrades) {
     int numOfStudents = overallGrades.length;
     char[] letterGrades = new char[numOfStudents];
@@ -90,7 +109,7 @@ public class HW220315060 {
       }
     }
 
-    // Print letter grades
+    /* Print letter grades */
     System.out.println("Letter Grades:");
     for (int i = 0; i < numOfStudents; i++) {
       System.out.println("Student " + (i + 1) + ": " + letterGrades[i]);

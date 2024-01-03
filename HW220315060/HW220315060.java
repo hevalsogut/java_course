@@ -1,114 +1,101 @@
-
-/*  HEVAL SÖĞÜT  */
-/*  220315060    */
+/*    HEVAL SÖĞÜT */
+/*     220315060  */
 
 package HW220315060;
 
-import java.util.Scanner;
-
 public class HW220315060 {
-  static final String USERNAME = "user";
-  static final String PASSWORD = "1234";
-  static double accountBalance = 0;
-
   /* Main Method */
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    int[][] scoreArray = initiateScoreArray();
+    printScores(scoreArray);
 
-    while (true) {
-      System.out.print("USERNAME: ");
-      String username = sc.nextLine();
-      System.out.print("PASSWORD: ");
-      String password = sc.nextLine();
-      if (authenticateUser(username, password))
-        break;
-    }
+    calculateAverages(scoreArray);
 
-    while (true) {
-      printMenu();
-      int choice = sc.nextInt();
-      if (!(choice < 5 && choice > 0)) {
-        System.out.println("İnvalid choice");
+    double[] overallGrades = calculateOverallGrade(scoreArray);
+    calculateLetterGrade(overallGrades);
+  }
 
-      } else {
-        switch (choice) {
-          case 1:
-            depositMoney();
-            break;
-          case 2:
-            withDraw();
-            break;
-          case 3:
-            checkBalance();
-            break;
-          case 4:
-            System.exit(0);
-            break;
-        }
+  public static int[][] initiateScoreArray() {
+    int[][] scoreArray = new int[20][3];
+    for (int i = 0; i < 20; i++) {
+      for (int j = 0; j < 3; j++) {
+        scoreArray[i][j] = (int) (Math.random() * 101);
       }
-
     }
+    return scoreArray;
   }
 
-  /* The authentication page for user */
-
-  public static boolean authenticateUser(String username, String password) {
-
-    if (username.equals(USERNAME) && password.equals(PASSWORD)) {
-      System.out.println("Login Succesfull");
-      return true;
-    } else {
-      System.out.println("Invalid username or password. Please try again.");
-      return false;
+  public static void printScores(int[][] scoreArray) {
+    System.out.println("Student" + " -- " + "Quiz" + "\t" + "Midterm" + "\t" + "Final");
+    for (int i = 0; i < 20; i++) {
+      System.out.print("Student " + (i + 1) + ": ");
+      for (int j = 0; j < 3; j++) {
+        System.out.print(scoreArray[i][j] + "\t");
+      }
+      System.out.println();
     }
+    System.out.println("--------------------");
   }
 
-  /* Menu of the appllication */
-
-  public static void printMenu() {
-    System.out.println("\n---- Bank Application ----");
-    System.out.println("1. Deposit Money");
-    System.out.println("2. Withdraw Money");
-    System.out.println("3. Check Money Balance");
-    System.out.println("4. Exit");
-    System.out.print("Your choice: ");
-  }
-
-  /* Choice 1, the deposit money section */
-
-  public static void depositMoney() {
-    System.out.print("Enter the amount to deposit: ");
-    Scanner sc = new Scanner(System.in);
-    int deposit = sc.nextInt();
-    accountBalance = accountBalance + deposit;
-    System.out.println("Deposit successful. New balance: " + accountBalance);
-
-  }
-
-  /* Choice 2, withdraw money section */
-
-  public static void withDraw() {
-    System.out.print("Enter the amount to withdraw: ");
-    Scanner sc = new Scanner(System.in);
-    int withdraw = sc.nextInt();
-
-    /*
-     * If the accountBalance is lower than the withdraw input, program will not work
-     * efficently
-     */
-
-    if (accountBalance < withdraw) {
-      System.out.println("Insufficent balance. The withdrawal amount cannot exceed the account balance.");
-    } else {
-      accountBalance = accountBalance - withdraw;
-      System.out.println("Withdraw successful. New balance: " + accountBalance);
+  public static double[] calculateAverages(int[][] scoreArray) {
+    double[] averages = new double[3];
+    for (int j = 0; j < 3; j++) {
+      double sum = 0;
+      for (int i = 0; i < 20; i++) {
+        sum += scoreArray[i][j];
+      }
+      averages[j] = sum / 20;
     }
+
+    System.out.println("Quiz Average: " + averages[0]);
+    System.out.println("Midterm Average: " + averages[1]);
+    System.out.println("Final Average: " + averages[2]);
+    System.out.println("--------------------");
+
+    return averages;
   }
 
-  /* Choice 3, Check Balance section */
+  public static double[] calculateOverallGrade(int[][] scoreArray) {
+    double[] overallGrades = new double[20];
 
-  public static void checkBalance() {
-    System.out.println("Account Balance: " + accountBalance);
+    for (int i = 0; i < 20; i++) {
+      double quizWeight = scoreArray[i][0] * 0.2;
+      double midtermWeight = scoreArray[i][1] * 0.3;
+      double finalWeight = scoreArray[i][2] * 0.5;
+
+      overallGrades[i] = quizWeight + midtermWeight + finalWeight;
+    }
+
+    System.out.println("Overall Grades:");
+    for (int i = 0; i < 20; i++) {
+      System.out.println("Student " + (i + 1) + ": " + overallGrades[i]);
+    }
+    System.out.println("----------------");
+    return overallGrades;
   }
 
+  public static char[] calculateLetterGrade(double[] overallGrades) {
+    int numOfStudents = overallGrades.length;
+    char[] letterGrades = new char[numOfStudents];
+
+    for (int i = 0; i < numOfStudents; i++) {
+      if (overallGrades[i] >= 85) {
+        letterGrades[i] = 'A';
+      } else if (overallGrades[i] >= 65) {
+        letterGrades[i] = 'B';
+      } else if (overallGrades[i] >= 50) {
+        letterGrades[i] = 'C';
+      } else {
+        letterGrades[i] = 'F';
+      }
+    }
+
+    // Print letter grades
+    System.out.println("Letter Grades:");
+    for (int i = 0; i < numOfStudents; i++) {
+      System.out.println("Student " + (i + 1) + ": " + letterGrades[i]);
+    }
+
+    return letterGrades;
+  }
 }

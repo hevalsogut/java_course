@@ -18,7 +18,7 @@ public class reverseArray {
 
     /* Generate the random array with the given size, minimum and maximum values. */
     int[] randomArray = generaterandomArray(size, min, max);
-    System.out.println(randomArray);
+    System.out.print(randomArray);
 
     /* Print the generated array */
     System.out.print("Generated array:");
@@ -54,7 +54,6 @@ public class reverseArray {
   public static void printArray(int[] array) {
     for (int num : array) {
       System.out.println(num + " ");
-
     }
     System.out.println();
   }
